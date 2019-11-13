@@ -1,14 +1,13 @@
 {% if section.settings.Btn_Text_Color == "1" %}
-   {% assign x = "btn-black" %}
-{% endif %}
-{% if section.settings.Btn_Text_Color == "0" %}
-   {% assign x = "btn-white" %}
+   {% assign btn_color = "btn-black" %}
+{% else if section.settings.Btn_Text_Color == "0" %}
+   {% assign btn_color = "btn-white" %}
 {% endif %}
 
 <div id="page-width">
     <div style="display:flex;justify-content: space-around;" 
     class="section-block section-block--padding">
-        <button id="myBtn" class="{{ x }}" href="{{ section.settings.link }}" >{{ section.settings.btntext }}</a>
+        <button id="myBtn" class="{{ btn_color }}" href="{{ section.settings.link }}" >{{ section.settings.btntext }}</a>
     </div>
 </div>
 
