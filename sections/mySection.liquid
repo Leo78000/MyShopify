@@ -1,0 +1,80 @@
+<div id="page-width">
+    <div style="display:flex;justify-content: space-around;" 
+    class="section-block section-block--padding">
+        <button id="myBtn" href="{{ section.settings.link }}" >{{ section.settings.btntext }}</a>
+    </div>
+</div>
+
+<style>
+    button#myBtn{
+        background-color:{{ section.settings.background_color }};
+        font-size: {{ section.settings.font-size }}em!important;
+        font-weight: 700;
+        color:white;
+        border:none;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 15px 45px;
+        transition: color 0.1s ease-in, background-color 0.1s ease-in;
+    }
+    button#myBtn:hover{
+        background-color:{{ section.settings.background_color_hover }}
+    }
+
+</style>
+
+{% schema %}
+{
+    "name":"MySection",
+    "settings":[
+    {
+        "type":"color",
+        "id":"background_color_hover",
+        "label":"Text",
+        "default":"#58c114",
+        "info":"Couleur du hover"
+    },
+    {
+        "type":"color",
+        "id":"background_color",
+        "label":"Text",
+        "default":"#FF4E00",
+        "info":"Couleur du bouton"
+    },
+    {
+        "id":"link",
+        "type":"url",
+        "label":"Button Link"
+    },
+    {
+        "id":"btntext",
+        "type":"text",
+        "label":"Button text",  
+        "default":"Click here"
+    },
+    {
+        "type":"range",
+        "id":"font-size",
+        "min":1,
+        "max":2,
+        "step":0.1,
+        "label":"Taille du bouton",
+        "default":1
+    }
+]
+,
+    "presets":[
+    {
+    "name":"Ma section",
+    "category":"AAA - Spacewich Section"
+    }
+]
+}
+
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
