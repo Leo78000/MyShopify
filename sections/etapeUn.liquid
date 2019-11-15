@@ -1,0 +1,83 @@
+<div id="page-width">
+    <div id="section_menu" style="display:flex;justify-content: space-around;flex-direction: column;align-items: center;" 
+    class="section-block section-block--padding">
+        <h3>{{ section.settings.SectionTitle }}</h3>
+        <ul>
+        {% for link in linklists[section.settings.MenuPicker].links %}
+            <li id="list_menu_exo">
+                <a id="link_menu_exo"href="{{ link.url }}">{{ link.title | escape }}</a>
+            </li>    
+        {% endfor %}
+         </ul>
+         <img id="image_menu" src="{{ section.settings.Image_Menu | img_url: 'large' }}" alt="image_section_menu_perso">
+    </div>
+</div>
+
+<style>
+a#link_menu_exo{
+    color:white;
+    font-size:14px;
+    text-transform: uppercase;
+}
+li#list_menu_exo{
+    padding:10px;
+    display:block;
+    width:150px;
+    background-color:orangered;
+    list-style-type: none;
+    margin-bottom:10px;
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: bold;
+    transition-duration: 0.5s;
+    cursor:pointer;
+}
+li#list_menu_exo:hover{
+    background-color:darkred;
+}
+img#image_menu{
+    height:380px;
+    min-width: 100%;
+    object-fit:contain;
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Ma section avec menu",
+    "settings": [
+    {
+        "type":      "text",
+        "id":        "SectionTitle",
+        "label":     "Titre de la section",
+        "default":   "Entrez un titre",
+        "info":      "Titre",
+        "placeholder": "Votre titre"
+     },
+     {
+        "type":      "link_list",
+        "id":        "MenuPicker",
+        "label":     "Menu",
+        "info":      "Choisissez votre menu",
+        "default":   "main-menu"
+     },
+     {
+        "type": "image_picker",
+        "id": "Image_Menu",
+        "label": "Image"
+      }   
+    ],
+    "presets":[
+    {
+    "name":"Étape 1",
+    "category":"Cours IIM"
+    }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

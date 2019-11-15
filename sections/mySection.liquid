@@ -5,9 +5,14 @@
 {% endif %}
 
 <div id="page-width">
-    <div style="display:flex;justify-content: space-around;" 
+    <div style="display:flex;justify-content: space-around;flex-direction: column;align-items: center;margin-bottom: 50px;" 
     class="section-block section-block--padding">
-        <button id="myBtn" class="{{ btn_color }}" href="{{ section.settings.link }}" >{{ section.settings.btntext }}</a>
+        <h3> {{ section.settings.TitleButton }} </h3>
+        <a href="{{ section.settings.link }}">
+            <button id="myBtn" class="{{ btn_color }}">
+                {{ section.settings.btntext }}
+            </button>
+        </a>
     </div>
 </div>
 
@@ -36,7 +41,7 @@
 
 {% schema %}
 {
-    "name":"MySection",
+    "name":"Ma Section",
     "settings":[
     {
         "type":"select",
@@ -84,6 +89,12 @@
         "default":"Clique ici !"
     },
     {
+        "id":"TitleButton",
+        "type":"text",
+        "label":"Texte du titre de Section",  
+        "default":"Clique ici !"
+    },
+    {
         "type":"range",
         "id":"font-size",
         "min":1,
@@ -97,7 +108,7 @@
     "presets":[
     {
     "name":"Ma section",
-    "category":"AAA - Spacewich Section"
+    "category":"Cours IIM"
     }
 ]
 }
